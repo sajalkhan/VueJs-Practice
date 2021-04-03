@@ -13,6 +13,28 @@
       <label v-if="i === 2"><strong>University:</strong> {{ info }}</label>
     </span>
   </div>
+  <br />
+  <div>
+    <!--  
+    modifiers 
+    1. trim 
+    2. lazy 
+    3. number 
+    4. prevent (example:@submit.prevent='method name') 
+    5. keyup
+    -->
+
+    <!-- trim works for remove leading and trailing spaces -->
+    name: <input type="text" v-model.trim="info.userName" /><br />
+    <!-- lazy modifiers help to update data after click outside -->
+    email: <input type="text" v-model.trim.lazy="info.email" /><br />
+    <!-- number modifiers help to store number value -->
+    age: <input type="number" v-model.number="info.age" @keyup.enter="keyUp" />
+  </div>
+
+  <pre>
+    {{ info }}
+  </pre>
 </template>
 <script>
 export default {
@@ -34,7 +56,18 @@ export default {
           info: ["rangpur", "rajshahi", "ru"],
         },
       ],
+      info: {
+        userName: "",
+        email: "",
+        age: null,
+      },
     };
+  },
+
+  methods: {
+    keyUp() {
+      alert("yes keup called");
+    },
   },
 };
 </script>
@@ -47,6 +80,10 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+body {
+  background: yellow;
 }
 
 .list {
