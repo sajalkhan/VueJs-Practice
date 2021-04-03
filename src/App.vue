@@ -13,6 +13,11 @@
       <label v-if="i === 2"><strong>University:</strong> {{ info }}</label>
     </span>
   </div>
+
+  <div>
+    <h4>result of add method: {{ add(1, 2, 3, 4, 5, 10, 15, 20) }}</h4>
+    <h4>rsult of multiply method: {{ multiply(2) }}</h4>
+  </div>
 </template>
 <script>
 export default {
@@ -35,6 +40,14 @@ export default {
         },
       ],
     };
+  },
+  methods: {
+    add(...rest) {
+      return rest.reduce((sum, item) => (sum += item));
+    },
+    multiply(num) {
+      return num * 5;
+    },
   },
 };
 </script>
