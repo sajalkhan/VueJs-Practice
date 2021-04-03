@@ -13,6 +13,12 @@
       <label v-if="i === 2"><strong>University:</strong> {{ info }}</label>
     </span>
   </div>
+
+  <div>
+    <h4>{{ name }}</h4>
+    <button v-on:click="changeName()">Change Name</button> {{ " " }}
+    <button v-on:mouseover="changeNamebyHover()">Change Name by hover</button>
+  </div>
 </template>
 <script>
 export default {
@@ -20,6 +26,8 @@ export default {
   data() {
     return {
       district: ["dhaka", "rajshahi", "natore", "khulna"],
+      name: "sajal khan",
+      count: 0,
       users: [
         {
           name: "sohrab hossain",
@@ -35,6 +43,14 @@ export default {
         },
       ],
     };
+  },
+  methods: {
+    changeName() {
+      this.name = `sajal khan ${++this.count}`;
+    },
+    changeNamebyHover() {
+      this.name = `sajal khan ${--this.count}`;
+    },
   },
 };
 </script>
