@@ -16,8 +16,13 @@
 
   <div>
     <h4>{{ name }}</h4>
-    <button v-on:click="changeName()">Change Name</button> {{ " " }}
-    <button v-on:mouseover="changeNamebyHover()">Change Name by hover</button>
+    <h4>result: {{ result }}</h4>
+    <!-- call multiple method -->
+    <button @click="changeName(), updateResult($event)">
+      Change Name and update result
+    </button>
+    {{ " " }}
+    <button @mouseover="changeNamebyHover">Change Name by hover</button>
   </div>
 </template>
 <script>
@@ -28,6 +33,7 @@ export default {
       district: ["dhaka", "rajshahi", "natore", "khulna"],
       name: "sajal khan",
       count: 0,
+      result: 100,
       users: [
         {
           name: "sohrab hossain",
@@ -50,6 +56,9 @@ export default {
     },
     changeNamebyHover() {
       this.name = `sajal khan ${--this.count}`;
+    },
+    updateResult() {
+      this.result = --this.result;
     },
   },
 };
