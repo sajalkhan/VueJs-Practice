@@ -1,17 +1,15 @@
 <template>
   <div :class="['divStyle']">
-    <ul v-for="(dist, indx) in district" :key="indx" :class="['list']">
-      <li>{{ dist }}</li>
-    </ul>
-  </div>
+    <h2>volume Tracker (0-20)</h2>
+    <h2>Current volume - {{ computedVolumeLevel }}</h2>
+    <button @click="increase">Increase(+)</button>
+    <button @click="decrease">Decrease(-)</button>
 
-  <div v-for="(u, indx) in users" :key="indx">
-    <h2>Name: {{ u.name }}</h2>
-    <span v-for="(info, i) in u.info" :key="i">
-      <label v-if="i === 0"><strong>Home Town:</strong> {{ info }}, </label>
-      <label v-if="i === 1"><strong>Home Dist:</strong> {{ info }}, </label>
-      <label v-if="i === 2"><strong>University:</strong> {{ info }}</label>
-    </span>
+    <input type="text" v-model="movieList" />
+    <input type="text" v-model="movie" />
+    <input type="text" v-model="movieInfo.name" placeholder="movie name" />
+    <input type="text" v-model="movieInfo.author" placeholder="movie author" />
+    <button @click="AllMovieList.push('thor')">Add movie</button>
   </div>
 </template>
 <script>
@@ -19,22 +17,67 @@ export default {
   name: "App",
   data() {
     return {
-      district: ["dhaka", "rajshahi", "natore", "khulna"],
-      users: [
-        {
-          name: "sohrab hossain",
-          info: ["natore", "rajshahi", "diu"],
-        },
-        {
-          name: "khairul bashar",
-          info: ["natore", "rajshahi", "hstu"],
-        },
-        {
-          name: "mustafizur rahaman",
-          info: ["rangpur", "rajshahi", "ru"],
-        },
-      ],
+      volume: 0,
+      movieList: "",
+      movie: "batman",
+      movieInfo: {
+        name: "",
+        author: "",
+      },
+      AllMovieList: ["batman", "spider man", "iron man"],
     };
+  },
+  methods: {
+    increase() {
+      if (this.volume < 20 && this.volume >= 0) {
+        return (this.volume += 2);
+      }
+    },
+    decrease() {
+      if (this.volume >= 2) {
+        return (this.volume -= 2);
+      }
+    },
+  },
+  computed: {
+    computedVolumeLevel: {
+      get() {
+        return `${this.volume}`;
+      },
+      set(value) {
+        this.volume = value;
+      },
+    },
+  },
+  watch: {
+    volume(newValue, oldValue) {
+      if (newValue > oldValue && newValue == 16) {
+        alert("Listining to high volume for long time may damage your hearing");
+      }
+    },
+    movieList() {
+      console.log(`api call with movie name ${this.movieList}`);
+    },
+    movie: {
+      handler(newValue) {
+        console.log(`calling api with movie name ${newValue}`);
+      },
+      immediate: true, // this tage help us to call this method first tiem when page is loaded
+    },
+    movieInfo: {
+      handler(newValue) {
+        console.log(
+          `calling api with movie name ${newValue.name} and author ${newValue.author}`
+        );
+      },
+      deep: true, //vue can't read object/array value so to understand it we have to set deep: true tag
+    },
+    AllMovieList: {
+      handler(newValue) {
+        console.log(`calling api with new pushed movie ${newValue}`);
+      },
+      deep: true, // to watch array value we have to also add this tag
+    },
   },
 };
 </script>
