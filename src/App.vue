@@ -2,6 +2,7 @@
   <div :class="['divStyle']">
     <button @click="show = true">Open Popup</button>
     <Popup v-show="show" @closeModel="closePopup" />
+    <!-- // here i have pass v-model as a props -->
     <Input v-model="name" />
     <p v-if="name.length">parent: {{ name }}</p>
     <p>{{ childData }}</p>
