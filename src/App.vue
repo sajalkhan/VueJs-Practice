@@ -2,17 +2,22 @@
   <div :class="['divStyle']">
     <button @click="show = true">Open Popup</button>
     <Popup v-show="show" @closeModel="closePopup" />
+    <Input v-model="name" />
+    <p v-if="name.length">parent: {{ name }}</p>
     <p>{{ childData }}</p>
   </div>
 </template>
 <script>
 import Popup from "./components/popup";
+import Input from "./components/input.vue";
+
 export default {
   name: "App",
   data() {
     return {
       show: false,
       childData: "",
+      name: "",
     };
   },
   methods: {
@@ -23,6 +28,7 @@ export default {
   },
   components: {
     Popup,
+    Input,
   },
 };
 </script>
@@ -46,5 +52,9 @@ export default {
 .divStyle {
   display: grid;
   justify-content: center;
+}
+
+input {
+  margin-top: 20px;
 }
 </style>
