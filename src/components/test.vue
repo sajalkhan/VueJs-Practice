@@ -1,5 +1,6 @@
 <template>
   <div class="card">
+    <h2>welcome to Card components</h2>
     <!--TODO: slot is work like child concept in react-->
     <!-- <slot>Default content</slot> -->
   </div>

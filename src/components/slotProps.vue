@@ -1,5 +1,6 @@
 <template>
   <div class="nameList">
+    <h2>Welcome to namelist component</h2>
     <h3 v-for="name in names" :key="name">
       <!-- {{ name.firstName }} {{ name.lastName }} -->
       <!--//! v-bind:variablename helps to pass props to parent components -->

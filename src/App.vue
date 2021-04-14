@@ -1,17 +1,13 @@
 <template>
   <div :class="['divStyle']">
-    <!-- 
-    <Test /> <br /> -----// !Default children <Test/> ---//
-    <Test>children 1</Test> <br />
-    <Test>children 2</Test> <br />
-    <Test>
-      <img src="https://picsum.photos/200" alt="" />
-    </Test>
-    <br />
-    -->
+    <div class="tab">
+      <button @click="activeTab = 'Test'">TabA</button>
+      <button @click="activeTab = 'Test2'">TabB</button>
+      <button @click="activeTab = 'Tab3'">TabC</button>
+    </div>
 
-    <!--//! example of name slots -->
-    <Test>
+    <!--//! first way to make dynamic rendering -->
+    <!-- <Test v-if="activeTab == 'Tab1'">
       <template v-slot:header>
         <h3>header</h3>
       </template>
@@ -23,26 +19,36 @@
       </template>
     </Test>
 
-    <!--//! example of slot props -->
-    <Test2>
+    <Test2 v-if="activeTab == 'Tab2'">
       <template v-slot:default="data">
         {{ data.firstName }} {{ data.lastName }}
       </template>
-    </Test2>
+    </Test2> -->
+
+    <!--//!second way -->
+    <component :is="activeTab" />
+
+    <!--//!when switching component vue create a new instane so keep that instane we can use keep alive attribute -->
+    <keep-alive>
+      <component :is="activeTab" />
+    </keep-alive>
   </div>
 </template>
 <script>
 import Test from "./components/test.vue";
 import Test2 from "./components/slotProps.vue";
-
+import Tab3 from "./components/input.vue";
 export default {
   name: "App",
   data() {
-    return {};
+    return {
+      activeTab: "Test",
+    };
   },
   components: {
     Test,
     Test2,
+    Tab3,
   },
 };
 </script>
@@ -66,5 +72,19 @@ export default {
 .divStyle {
   display: grid;
   justify-content: center;
+}
+
+.tab {
+  display: flex;
+  justify-content: center;
+}
+.tab > button {
+  margin: 10px;
+  width: 80px;
+  height: 30px;
+  background-color: coral;
+  border: 0;
+  cursor: pointer;
+  outline: 0;
 }
 </style>
