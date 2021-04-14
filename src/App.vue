@@ -1,15 +1,23 @@
 <template>
-  <div :class="['divStyle']"></div>
+  <div :class="['divStyle']">
+    <!--//! now inspect dev console and see that portal is now upder the app component -->
+    <Portal />
+
+    <!--//!Teleport provides a clean way to allow us to control under which parent in our DOM we want a piece of HTML to be rendered, without having to resort to global state or splitting this into two components.  -->
+    <teleport to="#portal-root">
+      <Portal />
+    </teleport>
+    <!--//! N.B: https://codesandbox.io/s/vishwas-vue-teleport-4z93t -->
+  </div>
 </template>
 <script>
+import Portal from "./components/portal";
 export default {
   name: "App",
   data() {
-    return {
-      activeTab: "Test",
-    };
+    return {};
   },
-  components: {},
+  components: { Portal },
 };
 </script>
 
