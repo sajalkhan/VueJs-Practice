@@ -1,7 +1,7 @@
 <template>
   <div :class="['divStyle']">
     <!-- 
-    <Test /> <br /> -----// !Default children ---
+    <Test /> <br /> -----// !Default children <Test/> ---//
     <Test>children 1</Test> <br />
     <Test>children 2</Test> <br />
     <Test>
@@ -25,8 +25,8 @@
 
     <!--//! example of slot props -->
     <Test2>
-      <template v-slot:default="slotProps">
-        {{ slotProps.firstName }} {{ slotProps.lastName }}
+      <template v-slot:default="data">
+        {{ data.firstName }} {{ data.lastName }}
       </template>
     </Test2>
   </div>
