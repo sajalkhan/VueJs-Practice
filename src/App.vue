@@ -1,7 +1,13 @@
 <template>
-  <div :class="['divStyle']"></div>
+  <div :class="['divStyle']">
+    <News /> <br />
+    <CreatePost />
+  </div>
 </template>
+
 <script>
+import News from "./components/post";
+import CreatePost from "./components/createPost";
 export default {
   name: "App",
   data() {
@@ -9,7 +15,10 @@ export default {
       activeTab: "Test",
     };
   },
-  components: {},
+  components: {
+    News,
+    CreatePost,
+  },
 };
 </script>
 
