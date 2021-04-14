@@ -1,35 +1,24 @@
 <template>
   <div :class="['divStyle']">
-    <button @click="show = true">Open Popup</button>
-    <Popup v-show="show" @closeModel="closePopup" />
-    <!-- // here i have pass v-model as a props -->
-    <Input v-model="name" />
-    <p v-if="name.length">parent: {{ name }}</p>
-    <p>{{ childData }}</p>
+    <!-- //default text -->
+    <Test /> <br />
+    <Test>children 1</Test> <br />
+    <Test>children 2</Test> <br />
+    <Test>
+      <img src="https://picsum.photos/200" alt="" />
+    </Test>
   </div>
 </template>
 <script>
-import Popup from "./components/popup";
-import Input from "./components/input.vue";
+import Test from "./components/test.vue";
 
 export default {
   name: "App",
   data() {
-    return {
-      show: false,
-      childData: "",
-      name: "",
-    };
-  },
-  methods: {
-    closePopup(value) {
-      this.show = false;
-      this.childData = value;
-    },
+    return {};
   },
   components: {
-    Popup,
-    Input,
+    Test,
   },
 };
 </script>
@@ -53,9 +42,5 @@ export default {
 .divStyle {
   display: grid;
   justify-content: center;
-}
-
-input {
-  margin-top: 20px;
 }
 </style>
