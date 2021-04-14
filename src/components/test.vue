@@ -1,7 +1,19 @@
 <template>
   <div class="card">
     <!--TODO: slot is work like child concept in react-->
-    <slot>Default content</slot>
+    <!-- <slot>Default content</slot> -->
+  </div>
+
+  <div class="card2">
+    <div class="card__header">
+      <slot name="header"></slot>
+    </div>
+    <div class="card__content">
+      <slot></slot>
+    </div>
+    <div class="card__footer">
+      <slot name="footer"></slot>
+    </div>
   </div>
 </template>
 
@@ -17,21 +29,22 @@ export default {
 </script>
 
 <style scoped>
-.card {
-  width: 30vw;
-  height: 10vh;
+.card2 {
+  width: 50vw;
+  height: 50vh;
   outline: 0;
   border-radius: 10px;
   background-color: yellowgreen;
   text-transform: uppercase;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   color: green;
   overflow: hidden;
 }
 
-.card:hover {
+.card2:hover {
   border: 0;
   background-color: green;
   color: black;

@@ -1,16 +1,39 @@
 <template>
   <div :class="['divStyle']">
-    <!-- //default text -->
-    <Test /> <br />
+    <!-- 
+    <Test /> <br /> -----// !Default children ---
     <Test>children 1</Test> <br />
     <Test>children 2</Test> <br />
     <Test>
       <img src="https://picsum.photos/200" alt="" />
     </Test>
+    <br />
+    -->
+
+    <!--//! example of name slots -->
+    <Test>
+      <template v-slot:header>
+        <h3>header</h3>
+      </template>
+      <template v-slot:default>
+        <img src="https://picsum.photos/200" alt="" />
+      </template>
+      <template v-slot:footer>
+        <h5>footer</h5>
+      </template>
+    </Test>
+
+    <!--//! example of slot props -->
+    <Test2>
+      <template v-slot:default="slotProps">
+        {{ slotProps.firstName }} {{ slotProps.lastName }}
+      </template>
+    </Test2>
   </div>
 </template>
 <script>
 import Test from "./components/test.vue";
+import Test2 from "./components/slotProps.vue";
 
 export default {
   name: "App",
@@ -19,6 +42,7 @@ export default {
   },
   components: {
     Test,
+    Test2,
   },
 };
 </script>
