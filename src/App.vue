@@ -1,7 +1,12 @@
 <template>
-  <div :class="['divStyle']"></div>
+  <div :class="['divStyle']">
+    <ClickCounter />
+    <HoverCounter />
+  </div>
 </template>
 <script>
+import ClickCounter from "./components/clickcounter.vue";
+import HoverCounter from "./components/hovercounter.vue";
 export default {
   name: "App",
   data() {
@@ -9,7 +14,10 @@ export default {
       activeTab: "Test",
     };
   },
-  components: {},
+  components: {
+    ClickCounter,
+    HoverCounter,
+  },
 };
 </script>
 
