@@ -1,7 +1,11 @@
 <template>
-  <div :class="['divStyle']"></div>
+  <div :class="['divStyle']">
+    <Practice />
+  </div>
 </template>
 <script>
+import Practice from "./components/practice.vue";
+
 export default {
   name: "App",
   data() {
@@ -9,7 +13,7 @@ export default {
       activeTab: "Test",
     };
   },
-  components: {},
+  components: { Practice },
 };
 </script>
 
