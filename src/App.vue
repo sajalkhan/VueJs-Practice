@@ -1,7 +1,10 @@
 <template>
-  <div :class="['divStyle']"></div>
+  <div :class="['divStyle']">
+    <Parent />
+  </div>
 </template>
 <script>
+import Parent from "./components/parent.vue";
 export default {
   name: "App",
   data() {
@@ -9,7 +12,9 @@ export default {
       activeTab: "Test",
     };
   },
-  components: {},
+  components: {
+    Parent,
+  },
 };
 </script>
 
