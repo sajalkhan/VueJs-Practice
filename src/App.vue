@@ -1,15 +1,15 @@
 <template>
-  <div :class="['divStyle']"></div>
+  <div :class="['divStyle']">
+    <DcHeros />
+  </div>
 </template>
 <script>
+import DcHeros from "./Components/DcHeros.vue";
 export default {
   name: "App",
-  data() {
-    return {
-      activeTab: "Test",
-    };
+  components: {
+    DcHeros,
   },
-  components: {},
 };
 </script>
 
