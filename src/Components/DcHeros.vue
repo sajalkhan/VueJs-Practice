@@ -16,7 +16,7 @@
       <input
         class="hero__input"
         placeholder="Type Hero Name Here.."
-        v-model="newHero"
+        v-model.trim="newHero"
         ref="newHeroRef"
       />
       <button type="submit" class="hero__button">Add New Hero</button>
