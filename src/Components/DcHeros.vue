@@ -77,6 +77,12 @@ export default {
 </script>
 
 <style scoped>
+.hero__list {
+  border: 1px solid grey;
+  padding: 8px 8px 8px 8px;
+  border-radius: 5px;
+  margin-bottom: 30px;
+}
 .hero__list--items {
   list-style: none;
   display: flex;
