@@ -14,22 +14,21 @@
 
     <form class="hero__form" @submit.prevent="addHero">
       <input
-        class="hero__input"
+        class="hero__form--input"
         placeholder="Type Hero Name Here.."
         v-model.trim="newHero"
         ref="newHeroRef"
       />
-      <button type="submit" class="hero__button">Add New Hero</button>
+      <button type="submit">Add New Hero</button>
     </form>
   </div>
 </template>
 
 <script>
 import { computed, onMounted, ref } from "vue";
+import "./DcHeros.scss";
 
 export default {
-  name: "DcHero",
-
   setup() {
     const newHeroRef = ref("");
     const newHero = ref("");
@@ -75,54 +74,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.hero__list {
-  border: 1px solid grey;
-  padding: 8px 8px 8px 8px;
-  border-radius: 5px;
-  margin-bottom: 30px;
-}
-.hero__list--items {
-  list-style: none;
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 10px;
-}
-
-.hero__list--items > button {
-  background-color: red;
-  color: white;
-  cursor: pointer;
-  border: 0;
-  outline: none;
-}
-
-.hero__form {
-  display: flex;
-  justify-content: space-between;
-}
-
-.hero__input {
-  height: 20px;
-  margin-right: 5px;
-  padding: 2px 5px 5px 5px;
-  border: 1px solid grey;
-  border-radius: 5px;
-  outline: none;
-}
-
-.hero__button {
-  border: 0;
-  outline: none;
-  background: violet;
-  color: black;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-.hero__button:hover {
-  background: green;
-  color: white;
-}
-</style>
