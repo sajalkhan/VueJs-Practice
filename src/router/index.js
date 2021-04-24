@@ -1,6 +1,8 @@
 import { createWebHistory, createRouter } from "vue-router";
 import DcHeors from "../pages/DcHeros";
 import MarkDown from "../pages/MarkDown";
+import Slider from "../pages/Slider";
+
 const routes = [
   {
     path: "/dc-heros",
@@ -11,6 +13,11 @@ const routes = [
     path: "/markdown",
     name: "Markdown",
     component: MarkDown,
+  },
+  {
+    path: "/slider",
+    name: "Slider",
+    component: Slider,
   },
 ];
 

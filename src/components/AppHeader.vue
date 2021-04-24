@@ -26,6 +26,10 @@ export default {
           title: "Markdown",
           to: "/markdown",
         },
+        {
+          title: "Slider Carousel",
+          to: "/slider",
+        },
       ],
     };
   },
