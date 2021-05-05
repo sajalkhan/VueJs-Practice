@@ -1,0 +1,94 @@
+.bg-background {
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 99%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  overflow: hidden;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-contents {
+  height: 30%;
+  width: 30%;
+  background-color: white;
+  text-align: center;
+  padding: 20px;
+  position: relative;
+  transform: translate(100%, -100%);
+  border-radius: 4px;
+}
+
+.close {
+  position: absolute;
+  top: 0;
+  right: 10px;
+  font-size: 42px;
+  color: #333;
+  transform: rotate(45deg);
+  cursor: pointer;
+  &:hover {
+    color: #666;
+  }
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__title {
+    font-weight: 600;
+    font-size: 30px;
+  }
+
+  > button {
+    margin-top: 10px;
+    border: 0;
+    outline: 0;
+    height: 30px;
+    width: 100px;
+    color: white;
+    background-color: darkkhaki;
+    cursor: pointer;
+
+    &:hover {
+      background-color: burlywood;
+    }
+  }
+
+  &__email {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    > input {
+      margin: 5px auto;
+      display: block;
+      width: 100%;
+      padding: 8px;
+      border: 1px solid gray;
+    }
+  }
+
+  &__password {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    > input {
+      margin: 5px auto;
+      display: block;
+      width: 100%;
+      padding: 8px;
+      border: 1px solid gray;
+    }
+  }
+}

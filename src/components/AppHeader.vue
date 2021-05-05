@@ -9,6 +9,8 @@
       >
         {{ item.title }}
       </router-link>
+
+      <button @click="$emit('open-login-modal')">Login</button>
     </ul>
   </nav>
 </template>
@@ -47,6 +49,18 @@ export default {
   display: flex;
   justify-content: flex-start;
   align-content: center;
+}
+
+.app-header__list > button {
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: white;
+  cursor: pointer;
+}
+
+.app-header__list > button:hover {
+  color: #70a1ff;
 }
 
 .app-header__list--item {
