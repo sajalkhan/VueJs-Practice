@@ -1,7 +1,7 @@
 .bg-background {
   background-color: rgba(0, 0, 0, 0.5);
-  width: 99%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   position: absolute;
   top: 0;
   overflow: hidden;
@@ -11,8 +11,8 @@
 }
 
 .modal-contents {
-  height: 55%;
-  width: 30%;
+  height: 60%;
+  width: 35%;
   background-color: white;
   text-align: center;
   padding: 20px;

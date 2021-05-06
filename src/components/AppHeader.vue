@@ -35,6 +35,10 @@ export default {
           title: "Slider Carousel",
           to: "/slider",
         },
+        {
+          title: "Calculator",
+          to: "/calculator",
+        },
       ],
     };
   },
@@ -57,7 +61,7 @@ export default {
 <style scoped>
 .app-header {
   height: 50px;
-  width: 100%;
+  width: 100vw;
   background: #3742fa;
   display: flex;
 }
@@ -80,6 +84,9 @@ export default {
 }
 
 .app-header__list--item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-decoration: none !important;
   list-style: none;
   color: white;
@@ -90,6 +97,6 @@ export default {
   color: #70a1ff;
 }
 .app-header__list--item:not(:last-child) {
-  margin-right: 10px;
+  margin: 10px;
 }
 </style>

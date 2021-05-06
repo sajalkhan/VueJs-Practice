@@ -2,6 +2,7 @@ import { createWebHistory, createRouter } from "vue-router";
 import DcHeors from "../pages/DcHeros";
 import MarkDown from "../pages/MarkDown";
 import Slider from "../pages/Slider";
+import Calculator from "../pages/Calculator";
 
 const routes = [
   {
@@ -22,6 +23,11 @@ const routes = [
     path: "/slider",
     name: "Slider",
     component: Slider,
+  },
+  {
+    path: "/calculator",
+    name: "Calculator",
+    component: Calculator,
   },
 ];
 
