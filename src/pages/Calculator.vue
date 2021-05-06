@@ -6,38 +6,13 @@
 
     <textarea disabled class="calculator__result" :value="Result" />
 
-    <div class="calculator__button">
-      <button @click="pressed('1')">1</button>
-      <button @click="pressed('2')">2</button>
-      <button @click="pressed('3')">3</button>
-      <button @click="pressed('+')">+</button>
-    </div>
-
-    <div class="calculator__button">
-      <button @click="pressed('4')">4</button>
-      <button @click="pressed('5')">5</button>
-      <button @click="pressed('6')">6</button>
-      <button @click="pressed('-')">-</button>
-    </div>
-
-    <div class="calculator__button">
-      <button @click="pressed('7')">7</button>
-      <button @click="pressed('8')">8</button>
-      <button @click="pressed('9')">9</button>
-      <button @click="pressed('*')">*</button>
-    </div>
-
-    <div class="calculator__button">
-      <button @click="pressed('0')">0</button>
-      <button @click="pressed('C')">C</button>
-      <button @click="pressed('=')">=</button>
-      <button @click="pressed('/')">/</button>
-    </div>
+    <CalculatorButton @KeyPressed="pressed" />
   </div>
 </template>
 
 <script>
 import "./Calculator.scss";
+import CalculatorButton from "../components/CalculatorButton";
 import { calculateResult } from "../utilities/mixins/calculateResult";
 import { onMounted, onUnmounted, ref } from "vue";
 
@@ -73,6 +48,9 @@ export default {
     });
 
     return { randomColor, pressed, Result };
+  },
+  components: {
+    CalculatorButton,
   },
 };
 </script>
