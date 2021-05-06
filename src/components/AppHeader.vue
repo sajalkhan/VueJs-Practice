@@ -10,13 +10,16 @@
         {{ item.title }}
       </router-link>
 
-      <button @click="$emit('open-login-modal')">Login</button>
+      <button v-if="isLogedIn" @click="logout">Logout</button>
+      <button v-else @click="$emit('open-login-modal')">Login</button>
     </ul>
   </nav>
 </template>
 
 <script>
+import firebase from "../utilities/firebase";
 export default {
+  props: { isLogedIn: Boolean },
   data() {
     return {
       list: [
@@ -34,6 +37,19 @@ export default {
         },
       ],
     };
+  },
+  methods: {
+    logout() {
+      firebase
+        .auth()
+        .signOut()
+        .then(() => {
+          console.log("singout successfully!");
+        })
+        .catch((error) => {
+          console.log("error -- ", error);
+        });
+    },
   },
 };
 </script>

@@ -5,6 +5,10 @@ import Slider from "../pages/Slider";
 
 const routes = [
   {
+    path: "/",
+    component: DcHeors,
+  },
+  {
     path: "/dc-heros",
     name: "DcHero",
     component: DcHeors,
