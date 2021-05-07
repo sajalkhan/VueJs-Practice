@@ -3,6 +3,7 @@ import DcHeors from "../pages/DcHeros";
 import MarkDown from "../pages/MarkDown";
 import Slider from "../pages/Slider";
 import Calculator from "../pages/Calculator";
+import ReusableModal from "../pages/ReusableModal";
 
 const routes = [
   {
@@ -28,6 +29,11 @@ const routes = [
     path: "/calculator",
     name: "Calculator",
     component: Calculator,
+  },
+  {
+    path: "/modal",
+    name: "Modal",
+    component: ReusableModal,
   },
 ];
 

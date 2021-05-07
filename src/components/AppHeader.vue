@@ -39,6 +39,10 @@ export default {
           title: "Calculator",
           to: "/calculator",
         },
+        {
+          title: "Modal",
+          to: "/modal",
+        },
       ],
     };
   },
