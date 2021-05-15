@@ -1,14 +1,8 @@
 <template>
-  <AppHeader
-    @open-login-modal="isOpenLoginModal = true"
-    :isLogedIn="isLogedIn"
-  />
+  <AppHeader />
   <router-view />
   <teleport to="body">
-    <LoginModal
-      v-if="isOpenLoginModal"
-      @close-login-modal="isOpenLoginModal = false"
-    />
+    <LoginModal v-if="isLoginOpen" />
   </teleport>
 </template>
 
@@ -18,22 +12,20 @@ import LoginModal from "./components/LoginModal.vue";
 import firebase from "./utilities/firebase";
 
 export default {
-  name: "App",
-  data() {
-    return {
-      authUser: {},
-      isLogedIn: false,
-      isOpenLoginModal: false,
-    };
+  computed: {
+    isLoginOpen() {
+      return this.$store.state.isOpenLoginModal;
+    },
   },
   mounted() {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
-        this.isLogedIn = true;
-        this.authUser = user;
+        this.$store.commit("setIsLoggedIn", true);
+        this.$store.commit("setLoginModal", false);
+        this.$store.commit("setAuthUser", user);
       } else {
-        this.isLogedIn = false;
-        this.authUser = {};
+        this.$store.commit("setIsLoggedIn", false);
+        this.$store.commit("setAuthUser", {});
       }
     });
   },

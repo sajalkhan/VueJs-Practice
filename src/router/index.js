@@ -4,6 +4,8 @@ import MarkDown from "../pages/MarkDown";
 import Slider from "../pages/Slider";
 import Calculator from "../pages/Calculator";
 import ReusableModal from "../pages/ReusableModal";
+import Chat from "../pages/Chat";
+import store from "../store/index";
 
 const routes = [
   {
@@ -34,6 +36,17 @@ const routes = [
     path: "/modal",
     name: "Modal",
     component: ReusableModal,
+  },
+  {
+    path: "/chat",
+    component: Chat,
+    beforeEnter: (_, __, next) => {
+      if (!store.state.isLoggedIn) {
+        next("/");
+      } else {
+        next();
+      }
+    },
   },
 ];
 

@@ -1,7 +1,7 @@
 <template>
   <section @click="close" class="bg-background" />
   <div class="modal-contents">
-    <div class="close" @click="$emit('close-login-modal')">+</div>
+    <div class="close" @click="close">+</div>
     <form class="login-form" @submit.prevent="submit">
       <label class="login-form__title">Login</label>
 
@@ -74,11 +74,11 @@ export default {
         });
     },
     close() {
-      this.$emit("close-login-modal");
+      this.$store.commit("setLoginModal", false);
     },
   },
   mounted() {
-    this.$refs.emailRef.focus();
+    this.$refs.emailRef && this.$refs.emailRef.focus();
   },
 };
 </script>
