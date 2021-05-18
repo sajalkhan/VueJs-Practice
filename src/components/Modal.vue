@@ -44,7 +44,8 @@ export default {
   background-color: white;
   text-align: center;
   padding: 20px;
-  position: relative;
+  position: absolute;
+  top: 10%;
   transform: translate(95%, 10%);
   border-radius: 4px;
 }

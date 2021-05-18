@@ -46,6 +46,10 @@ export default {
           title: "Chat",
           to: "/chat",
         },
+        {
+          title: "User Crud",
+          to: "/user-crud",
+        },
       ],
     };
   },

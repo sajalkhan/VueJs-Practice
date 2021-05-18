@@ -6,6 +6,7 @@ import Calculator from "../pages/Calculator";
 import ReusableModal from "../pages/ReusableModal";
 import Chat from "../pages/Chat";
 import store from "../store/index";
+import UserCrud from "../pages/UserCrud";
 
 const routes = [
   {
@@ -41,6 +42,10 @@ const routes = [
     path: "/chat",
     component: Chat,
     meta: { middleware: "auth" },
+  },
+  {
+    path: "/user-crud",
+    component: UserCrud,
   },
 ];
 
